@@ -5,15 +5,34 @@
 City Explorer is designed to consume the LocationIQ API in order to allow the user to search for a city, which returns a map of that city. 
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+1. Clone the repo
+2. Run `npm i` to install dependencies
+3. Make sure to set up a `.env` file at the root of the project with an API key for LocationIQ.
+4. Run `npm start` to start exploring cities!
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+Built with create-react-app, along with the react-bootstrap package 
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+Author: Vince Masten <vmasten@me.com>
+Date:   Mon Mar 22 21:59:18 2021 -0700
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+    done for the night
+
+Author: Vince Masten <vmasten@me.com>
+Date:   Mon Mar 22 16:58:57 2021 -0700
+
+    features 1 and 2 complete
+
+Author: Vince Masten <vmasten@me.com>
+Date:   Mon Mar 22 14:31:13 2021 -0700
+
+    react functional
+
+Author: Vince Masten <vmasten@me.com>
+Date:   Mon Mar 22 14:13:02 2021 -0700
+
+    initial commit
 
 ## Features
 
@@ -39,3 +58,12 @@ Finish time: 4:55pm
 Actual time needed to complete: 130 mins
 
 
+Name of feature: Map
+
+Estimate of time needed to complete: 30-60 mins
+
+Start time: 5:00pm
+
+Finish time: 6:25pm
+
+Actual time needed to complete: 85 mins

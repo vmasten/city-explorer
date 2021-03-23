@@ -1,6 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import City from './city.js'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component{
   constructor(props) {
@@ -12,6 +18,7 @@ class App extends React.Component{
       displayResults: false
     }
   }
+
 
 getLocationInfo = async(e) => {
   e.preventDefault();
@@ -30,19 +37,18 @@ getLocationInfo = async(e) => {
 
 render() {
   return(
-    <>
-    <form onSubmit={this.getLocationInfo} >
+    <Container className="pt-4">
+    <Form onSubmit={this.getLocationInfo} >
       <input onChange={(e) => this.setState({ searchCity: e.target.value })} placeholder="city"/>
-      <button type="submit">Explore!</button>
-    </form>
+      <Button size="sm" className="ml-2" type="submit">Explore!</Button>
+    </Form>
     <h1>City Explorer</h1>
-    {console.log(this.state.displayResults)}
     {this.state.displayResults &&
       <>
-        <City location={this.state.location}/>
+        <City location={this.state.location} imgSrc={this.state.imgSrc}/>
       </>
     }
-    </>
+    </Container>
   )
 }
 

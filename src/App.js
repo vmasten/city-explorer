@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import City from './city.js'
-import Form from 'react-bootstrap/Form'
-import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
+import City from './city.js';
+import Error from './error.js';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,26 +16,33 @@ class App extends React.Component{
       location:{},
       searchCity: '',
       imgSrc: '',
-      displayResults: false
+      displayResults: false,
+      displayError: false,
+      thisError: {}
     }
   }
 
 
 getLocationInfo = async(e) => {
   e.preventDefault();
-  const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.searchCity}&format=json`;
-  
-  const location = await axios.get(url);
-  const locationDetails = location.data;
-  
-  this.setState({
-    location: locationDetails[0],
-    displayResults: true,
-    imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationDetails[0].lat},${locationDetails[0].lon}&zoom=13`
-  
-  });
-}
+  try {
+    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.searchCity}&format=json`;
+    
+    const location = await axios.get(url);
+    const locationDetails = location.data;
+    
+    this.setState({
+      location: locationDetails[0],
+      displayResults: true,
+      imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationDetails[0].lat},${locationDetails[0].lon}&zoom=13`
 
+  });
+  }catch(error){
+    console.error(error);
+    this.setState({displayError: true, thisError: error});
+
+  }
+}
 render() {
   return(
     <Container className="pt-4">
@@ -47,6 +55,11 @@ render() {
       <>
         <City location={this.state.location} imgSrc={this.state.imgSrc}/>
       </>
+    }
+    {this.state.displayError && 
+      <>
+      <Error currentError={this.state.thisError}/>
+      </> 
     }
     </Container>
   )

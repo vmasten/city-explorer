@@ -15,6 +15,22 @@ City Explorer is designed to consume the LocationIQ API in order to allow the us
 Built with create-react-app, along with the react-bootstrap package and Node.js on the backend
 
 ## Change Log
+
+Author: Vince Masten <vmasten@me.com>
+Date:   Tue Mar 23 18:50:58 2021 -0700
+
+    feature complete
+
+Author: Vince Masten <vmasten@me.com>
+Date:   Tue Mar 23 11:41:11 2021 -0700
+
+    added error module, cleaned things up a bit
+
+Author: Vince Masten <vmasten@me.com>
+Date:   Mon Mar 22 22:31:30 2021 -0700
+
+    netlify troubleshooting
+
 Author: Vince Masten <vmasten@me.com>
 Date:   Mon Mar 22 21:59:18 2021 -0700
 

@@ -13,9 +13,9 @@ class Weather extends React.Component {
   }
 
   componentDidMount = async() => {
-    const SERVER = 'http://localhost:8080';
+    const SERVER = 'https://polar-plains-24419.herokuapp.com';
     try {
-      const weatherRaw = await axios.get(`${SERVER}/weatherr?lat=${this.props.location.lat}&lon=${this.props.location.lon}`)
+      const weatherRaw = await axios.get(`${SERVER}/weather?lat=${this.props.location.lat}&lon=${this.props.location.lon}`)
       const weatherData = weatherRaw.data;
       this.setState({ weather: weatherData })
       }catch(error) {

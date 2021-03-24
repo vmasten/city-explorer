@@ -1,17 +1,18 @@
 **Author**: Vince Masten
-**Version**: 1.0.0
+**Version**: 1.1.0
 
 ## Overview
-City Explorer is designed to consume the LocationIQ API in order to allow the user to search for a city, which returns a map of that city. 
+City Explorer is designed to consume the LocationIQ API in order to allow the user to search for a city, which returns a map of that city. It also hits a backend built in Node.js in order to pass a static array of weather data (with additional functionality coming soon)
 
 ## Getting Started
 1. Clone the repo
 2. Run `npm i` to install dependencies
-3. Make sure to set up a `.env` file at the root of the project with an API key for LocationIQ.
-4. Run `npm start` to start exploring cities!
+3. Grab the backend server at [City Explorer API](https://github.com/vmasten/city-explorer-api)
+4. Make sure to set up a `.env` file at the root of the project with an API key for LocationIQ.
+5. Run `npm start` to start exploring cities!
 
 ## Architecture
-Built with create-react-app, along with the react-bootstrap package 
+Built with create-react-app, along with the react-bootstrap package and Node.js on the backend
 
 ## Change Log
 Author: Vince Masten <vmasten@me.com>

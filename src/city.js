@@ -1,4 +1,5 @@
 import React from 'react';
+import Weather from './Weather.js'
 
 class City extends React.Component {
 
@@ -9,6 +10,7 @@ class City extends React.Component {
       <h3>Latitude: {this.props.location.lat}</h3>
       <h3>Longitude: {this.props.location.lon}</h3>
       <img src={this.props.imgSrc} alt={this.props.location.display_name}></img>
+      <Weather location={this.props.location}/>
       </>
     )
   }

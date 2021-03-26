@@ -1,5 +1,6 @@
 import React from 'react';
 import Weather from './Weather.js'
+import Movies from './Movies.js'
 
 class City extends React.Component {
 
@@ -11,6 +12,7 @@ class City extends React.Component {
       <h3>Longitude: {this.props.location.lon}</h3>
       <img src={this.props.imgSrc} alt={this.props.location.display_name}></img>
       <Weather location={this.props.location}/>
+      <Movies city={this.props.city}/>
       </>
     )
   }

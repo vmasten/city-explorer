@@ -17,7 +17,6 @@ class Weather extends React.Component {
     try {
       const weatherRaw = await axios.get(`${SERVER}/weather`, { params: { lat: this.props.location.lat, lon: this.props.location.lon }})
       const weatherData = weatherRaw.data;
-      console.log(weatherData);
       this.setState({ weather: weatherData })
       }catch(error) {
         console.error(error);
@@ -31,7 +30,7 @@ class Weather extends React.Component {
         <h2 className="pt-3">16 Day Forecast!</h2>
         <ListGroup variant="flush" className="w-50">
           {this.state.weather.map((day, index) => (
-            <ListGroup.Item eventKey={index}> {day.date} {day.description}</ListGroup.Item>
+            <ListGroup.Item key={index}> {day.date} {day.description}</ListGroup.Item>
           ))}
         </ListGroup>
         {this.state.displayError && 

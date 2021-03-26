@@ -53,7 +53,7 @@ render() {
     <h1>City Explorer</h1>
     {this.state.displayResults &&
       <>
-        <City location={this.state.location} imgSrc={this.state.imgSrc}/>
+        <City location={this.state.location} imgSrc={this.state.imgSrc} city={this.state.searchCity}/>
       </>
     }
     {this.state.displayError && 

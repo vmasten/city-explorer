@@ -13,9 +13,9 @@ class Weather extends React.Component {
   }
 
   componentDidMount = async() => {
-    const SERVER = 'https://polar-plains-24419.herokuapp.com';
+    const SERVER = `${process.env.REACT_APP_SERVER}`;
     try {
-      const weatherRaw = await axios.get(`${SERVER}/weather?lat=${this.props.location.lat}&lon=${this.props.location.lon}`)
+      const weatherRaw = await axios.get(`${SERVER}/weather`, { params: { lat: this.props.location.lat, lon: this.props.location.lon }})
       const weatherData = weatherRaw.data;
       this.setState({ weather: weatherData })
       }catch(error) {
@@ -27,10 +27,10 @@ class Weather extends React.Component {
   render() {
     return(
       <>
-        <h2 className="pt-3">(Fake) Weather</h2>
+        <h2 className="pt-3">16 Day Forecast!</h2>
         <ListGroup variant="flush" className="w-50">
           {this.state.weather.map((day, index) => (
-            <ListGroup.Item eventKey={index}> {day.date} {day.description}</ListGroup.Item>
+            <ListGroup.Item key={index}> {day.date} {day.description}</ListGroup.Item>
           ))}
         </ListGroup>
         {this.state.displayError && 

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Error from './error.js'
+import DailyWeather from './DailyWeather.js'
 
 class Weather extends React.Component {
   constructor(props) {
@@ -30,9 +31,13 @@ class Weather extends React.Component {
         <h2 className="pt-3">16 Day Forecast!</h2>
         <ListGroup variant="flush" className="w-50">
           {this.state.weather.map((day, index) => (
-            <ListGroup.Item key={index}> {day.date} {day.description}</ListGroup.Item>
-          ))}
+            <DailyWeather 
+            key={index} 
+            date={day.date} 
+            description={day.description}
+            />))}
         </ListGroup>
+        
         {this.state.displayError && 
           <>
           <Error currentError={this.state.thisError}/>

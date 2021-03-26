@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import CardColumns from 'react-bootstrap/CardColumns'
-import Card from 'react-bootstrap/Card'
 import Error from './error.js'
+import Movie from './Movie.js'
 
 
 class Movies extends React.Component {
@@ -11,7 +11,6 @@ class Movies extends React.Component {
     this.state= {
       movies: [],
       displayError: false,
-      defaultImg: 'https://placekitten.com/200/300'
     }
   }
 
@@ -34,16 +33,14 @@ class Movies extends React.Component {
       <h2>Movies!</h2>
       <CardColumns>
           {this.state.movies.map((movie, index) => (
-            <Card key={index}> 
-            <Card.Body>
-            <Card.Title>{movie.title}</Card.Title> 
-            <Card.Img src={movie.image_url} alt={movie.title} onError={(e)=>{e.target.onerror = null; e.target.src=`${this.state.defaultImg}`}}/>
-            <Card.Text>{movie.overview}</Card.Text>
-            <Card.Text>Original release date: {movie.released_on}</Card.Text>
-            </Card.Body>
-            </Card>
-          ))}
-        </CardColumns>
+            <Movie 
+            index={index} 
+            title={movie.title} 
+            image_url={movie.image_url} 
+            overview={movie.overview} 
+            released_on={movie.released_on}
+            />))}
+      </CardColumns>
         {this.state.displayError && 
           <>
           <Error currentError={this.state.thisError}/>

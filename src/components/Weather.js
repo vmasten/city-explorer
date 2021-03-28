@@ -28,7 +28,7 @@ class Weather extends React.Component {
   render() {
     return(
       <>
-        <h2 className="pt-3">16 Day Forecast!</h2>
+        <h2 className="pt-3">5 Day Forecast!</h2>
         <ListGroup variant="flush" className="w-50">
           {this.state.weather.map((day, index) => (
             <DailyWeather

@@ -31,8 +31,9 @@ class Weather extends React.Component {
         <h2 className="pt-3">16 Day Forecast!</h2>
         <ListGroup variant="flush" className="w-50">
           {this.state.weather.map((day, index) => (
-            <DailyWeather 
+            <DailyWeather
             key={index} 
+            index={index} 
             date={day.date} 
             description={day.description}
             />))}

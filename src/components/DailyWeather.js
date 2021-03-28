@@ -5,7 +5,7 @@ class DailyWeather extends React.Component {
 
   render() {
     return (
-      <ListGroup.Item key={this.props.key}>
+      <ListGroup.Item key={this.props.index}>
       {this.props.date} {this.props.description}
       </ListGroup.Item>
     )

@@ -11,7 +11,7 @@ class Movie extends React.Component {
 
   render() {
     return (
-      <Card key={this.props.index}> 
+      <Card index={this.props.index}> 
             <Card.Body>
             <Card.Title>{this.props.title}</Card.Title> 
             <Card.Img src={this.props.image_url} 
